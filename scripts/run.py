@@ -37,9 +37,10 @@ def main() -> None:
             break
 
     for file in files:
+        path = rename(file)[0].resolve().relative_to(root).as_posix()
         clipboard.append(
-            '![](https://raw.githubusercontent.com/Lingxuan-Ye'
-            f'/assets/main/{rename(file)[0].relative_to(root).as_posix()})'
+            '![](https://media.githubusercontent.com/media/Lingxuan-Ye/'
+            f'assets/main/{path})'
         )
 
     pyperclip.copy('\n\n'.join(clipboard))
